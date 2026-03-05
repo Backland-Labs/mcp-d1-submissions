@@ -5,7 +5,7 @@ A Cloudflare Worker (Python) that acts as an MCP server for submitting hackathon
 ## Add to Claude Code
 
 ```bash
-claude mcp add submissions --transport http https://mcp-submissions.casper-studios.workers.dev/mcp
+claude mcp add impact-lab-submissions --transport http https://mcp-submissions.casper-studios.workers.dev/mcp
 ```
 
 ## Setup
