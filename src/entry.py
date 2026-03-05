@@ -128,7 +128,7 @@ async def handle_tools_call(req_id, params, db):
 
 
 class Default(WorkerEntrypoint):
-    async def fetch(self, request):
+    async def on_fetch(self, request):
         # Handle CORS preflight
         if request.method == "OPTIONS":
             return Response("", status=204, headers={
@@ -164,6 +164,6 @@ class Default(WorkerEntrypoint):
         elif req_method == "tools/list":
             return handle_tools_list(req_id)
         elif req_method == "tools/call":
-            return await handle_tools_call(req_id, params, self.env.DB)
+            return await handle_tools_call(req_id, params, self.env.mcp_submissions_db)
         else:
             return jsonrpc_error(req_id, -32601, f"Method not found: {req_method}")

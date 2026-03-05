@@ -2,6 +2,12 @@
 
 A Cloudflare Worker (Python) that acts as an MCP server for submitting hackathon/project entries to a Cloudflare D1 database.
 
+## Add to Claude Code
+
+```bash
+claude mcp add submissions --transport http https://mcp-submissions.casper-studios.workers.dev/mcp
+```
+
 ## Setup
 
 ### Prerequisites
@@ -60,7 +66,7 @@ Add to your MCP client config (e.g. Claude Desktop `claude_desktop_config.json`)
 {
   "mcpServers": {
     "submissions": {
-      "url": "https://mcp-submissions.<your-subdomain>.workers.dev/mcp"
+      "url": "https://mcp-submissions.casper-studios.workers.dev/mcp"
     }
   }
 }
@@ -70,17 +76,17 @@ Add to your MCP client config (e.g. Claude Desktop `claude_desktop_config.json`)
 
 ```bash
 # Initialize
-curl -X POST https://mcp-submissions.<your-subdomain>.workers.dev/mcp \
+curl -X POST https://mcp-submissions.casper-studios.workers.dev/mcp \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}'
 
 # List tools
-curl -X POST https://mcp-submissions.<your-subdomain>.workers.dev/mcp \
+curl -X POST https://mcp-submissions.casper-studios.workers.dev/mcp \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}'
 
 # Submit a project
-curl -X POST https://mcp-submissions.<your-subdomain>.workers.dev/mcp \
+curl -X POST https://mcp-submissions.casper-studios.workers.dev/mcp \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"submit_project","arguments":{"team_name":"Team Alpha","github_url":"https://github.com/team-alpha/project","problem_statement":"Solving X with Y"}}}'
 ```

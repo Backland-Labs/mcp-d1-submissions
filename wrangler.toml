@@ -4,6 +4,11 @@ compatibility_date = "2024-12-18"
 compatibility_flags = ["python_workers"]
 
 [[d1_databases]]
-binding = "DB"
+binding = "mcp_submissions_db"
 database_name = "mcp-submissions-db"
-database_id = "<YOUR_DATABASE_ID>"
+database_id = "4130a130-4bcf-4a50-bcb5-9e242d6de9f4"
+
+[observability]
+[observability.logs]
+enabled = false
+invocation_logs = true
